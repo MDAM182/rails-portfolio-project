@@ -1,2 +1,9 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1 align="center"> All Users </h1>
+
+<div align="center">
+  <% @users.each do |user| %>
+  <ul>
+    <%= link_to user.username, user_path(user) %>
+  </ul>
+  <% end %>
+</div>
