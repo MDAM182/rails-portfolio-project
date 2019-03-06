@@ -1,4 +1,4 @@
-# rails-portfolio-project
+# Rails-Portfolio-Project
 [] Ruby on Rails framework
 [] Many-To-Many relationship implemented
 [] Validations
