@@ -18,6 +18,21 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(params[:id])
   end
 
+  def edit
+    @workout = Workout.find(params[:id])
+  end
+
+  def update
+    @workout = Workout.find(params[:id])
+    if @workout.update(workout_params)
+      flash[:notice] = "Workout was successfully updated"
+      redirect_to workout_path(@workout)
+    else
+      render 'edit'
+    end
+  end
+
+
 private
   def workout_params
     params.require(:workout).permit(:title, :description)
