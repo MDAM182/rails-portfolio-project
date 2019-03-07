@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  root 'user#index'
+  root 'welcome#index'
+
+
+  resources :workouts
+
 
   get 'signup', to: 'users#new'
   resources :users, except: [:new]
+
 end
