@@ -6,3 +6,7 @@
 <p>
   Description: <%= @workout.description %>
 </p>
+
+<%= link_to "Edit this workout", edit_workout_path(@workout) %> |
+
+<%= link_to "Back to workouts listing", workout_path %>

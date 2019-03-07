@@ -1,0 +1,18 @@
+<h1>Listing all workouts</h1>
+  <p>
+    <%= link_to "Create new workout", new_workout_path %>
+  </p>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+  </tr>
+    <% @workouts.each do |wo| %>
+  <tr>
+    <td><%= wo.title %></td>
+    <td><%= wo.description %></td>
+    <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
+    <td><%= link_to 'Show', workout_path(workout) %></td>
+  </tr>
+    <% end %>
+</table>
