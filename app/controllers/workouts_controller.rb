@@ -1,4 +1,4 @@
-class Workoutscontroller < ApplicationController
+class WorkoutsController < ApplicationController
 
   def new
      @workout = Workout.new
@@ -6,8 +6,16 @@ class Workoutscontroller < ApplicationController
 
   def create
     @workout = Workout.new(workout_params)
-    @workout.save
-    redirect_to workout_path(@workout)
+    if @workout.save
+      flash[:notice] = "Workout was successfully created"
+      redirect_to workout_path(@workout)
+    else
+      render 'new'
+    end
+  end
+
+  def show
+    @workout = Workout.find(params[:id])
   end
 
 private
