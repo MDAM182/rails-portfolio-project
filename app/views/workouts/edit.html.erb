@@ -1,26 +1,2 @@
-<h1>Edit Workout</h1>
-
-<% if @workout.errors.any? %>
-  <h2>The following errors prevented the article from getting created</h2>
-    <ul>
-      <% @workout.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-    </ul>
-<% end %>
-
-<%= form_for @workout do |f| %>
-  <p>
-    <%= f.label :title %><br/>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :description %><br/>
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-
-<%= link_to "Back to workouts listing", workout_path %>
+<h1 align="center"> Edit Workout</h1>
+<%= render 'form' %>
