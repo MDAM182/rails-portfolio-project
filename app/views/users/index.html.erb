@@ -10,7 +10,7 @@
           </li>
           <li><small><%= pluralize(user.workouts.count, "workout") if user.workouts %></small></li>
           <% if logged_in? && current_user.admin? %>
-            <li><%= link_to "Delete this user", user_workouts_path(user), method: :delete, data: {confirm: "Are you sure?"} %></li>
+            <li><%= link_to "Delete this user", user, method: :delete, data: {confirm: "Are you sure?"} %></li>
           <% end %>
         </div>
       </div>
