@@ -11,23 +11,30 @@
           <%= f.text_field :title, class: "form-control", placeholder: "Title of workout", autofocus: true %>
         </div>
       </div>
+
       <div class="form-group">
         <div class="control-label col-sm-2">
           <%= f.label :description %>
         </div>
-        <div class="col-sm-8">
-          <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Description of workout" %>
+          <div class="col-sm-8">
+            <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Description of workout" %>
+          </div>
         </div>
+
+      <!-- LEVEL SELECT -->
+
+      <div class="control-label col-sm-2">
+        <%= f.label :categories %>
       </div>
       <div class="form-group">
         <div class="row">
           <div class="col-sm-8 col-sm-offset-2">
-            <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
-              <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text } %>
-            <% end %>
+            <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: "Select" %>
+
           </div>
         </div>
       </div>
+
       <div class="form-group">
         <div class="col-sm-8 col-sm-offset-2">
           <%= f.submit class: "btn btn-primary btn-lg" %>
@@ -37,5 +44,6 @@
     <div class="col-xs-4 col-xs-offset-4">
       [ <%= link_to "Cancel request and return to workouts listing", workouts_path %> ]
     </div>
+
   </div>
 </div>

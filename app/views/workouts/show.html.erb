@@ -18,9 +18,13 @@
   <h4 class="center description"><strong>Description:</strong></h4>
   <hr>
   <%= simple_format(@workout.description) %>
-  <% if @workout.categories.any? %>
-    <p>Categories: <%= render @workout.categories %></p>
-  <% end %>
+
+
+      <% if @workout.category %>
+    <p>Categories: <%= render @workout.category %></p>
+    <% end %>
+
+
   <div class="workout-actions">
     <% if logged_in? && (current_user == @workout.user || current_user.admin?) %>
       <%= link_to "Edit this workout", edit_workout_path(@workout), class: "btn btn-xs btn-primary" %>

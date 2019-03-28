@@ -7,7 +7,7 @@
           <li class="workout-title">
             <%= link_to category.name, category_path(category) %>
           </li>
-          <li><small><%= pluralize(category.workouts.count, "workout") %></small></li>
+          <li><small><%=  pluralize(category.workouts.count, "workout") %></small></li>
         </div>
       </div>
     </ul>

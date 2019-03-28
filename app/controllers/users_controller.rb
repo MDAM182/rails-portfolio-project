@@ -53,7 +53,7 @@ private
   end
 
   def user_params
-   params.require(:user).permit(:username, :email, :password)
+   params.require(:user).permit(:username, :email, :password, :user_id)
   end
 
   def require_same_user

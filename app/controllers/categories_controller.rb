@@ -3,6 +3,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+
   end
 
   def new
@@ -34,8 +35,16 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
-    @category_workouts = @category.workouts.all
+    if params[:user_id]
+        @user = User.find_by(id: params[:user_id])
+        @category = @user.categories.find_by(id: params[:id])
+        if @category.nil?
+          flash[:danger] = "category not found"
+          redirect_to user_categories_path(@user)
+        end
+      else
+        @category = Category.find(params[:id])
+      end
   end
 
   # def destroy
@@ -46,7 +55,7 @@ class CategoriesController < ApplicationController
 private
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :user_id)
   end
 
   def require_admin

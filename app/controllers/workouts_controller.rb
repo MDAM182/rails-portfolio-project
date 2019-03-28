@@ -23,8 +23,8 @@ class WorkoutsController < ApplicationController
 
   def create
     @workout = Workout.new(workout_params)
-    @workout.user = current_user
-    if @workout.save
+     @workout.user = current_user
+     if @workout.save
       flash[:success] = "Workout was successfully created"
       redirect_to workout_path(@workout)
     else
@@ -72,7 +72,7 @@ private
   end
 
   def workout_params
-    params.require(:workout).permit(:title, :description, category_ids: [])
+    params.require(:workout).permit(:title, :description, :level, :user_id, :category_id)
   end
 
   def require_same_user

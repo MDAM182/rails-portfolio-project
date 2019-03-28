@@ -9,10 +9,11 @@ class SessionsController < ApplicationController
     if auth_hash
         @user = User.find_or_create_by_omniauth(auth_hash)
         session[:user_id] = @user.id
-        redirect_to projects_path
+        # binding.pry
+        redirect_to user_path(@user)
       else
-    if user = User.find_by(email: params[:session][:email].downcase)
-        user && user.authenticate(params[:session][:password])
+        user = User.find_by(email: params[:session][:email].downcase)
+      if user && user.authenticate(params[:session][:password])
         session[:user_id] = user.id
         flash[:success] = "Logged in successfully"
         redirect_to user_path(user)

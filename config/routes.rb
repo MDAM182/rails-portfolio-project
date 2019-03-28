@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  resources :users, except: [:new] do
-    resources :workouts 
+  resources :users  do
+    resources :workouts
   end
   resources :workouts
   resources :categories, except: [:destroy]

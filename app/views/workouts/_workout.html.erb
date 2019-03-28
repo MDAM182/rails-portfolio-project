@@ -8,14 +8,15 @@
         <div class="workout-body">
           <%= truncate(workout.description, length: 100) %>
           <div class="workout-meta-details">
-            <small>Created by: <%= workout.user.username if workout.user %>,
+            <small>Created by: <%=  workout.user.username if workout.user %>,
               <%= time_ago_in_words(workout.created_at) %> ago,
                   last updated: <%= time_ago_in_words(workout.updated_at) %> ago</small>
           </div>
         </div>
-        <% if workout.categories.any? %>
-          <p>Categories: <%= render workout.categories %></p>
+        <% if workout.category %>
+          <p>Categories: <%= render workout.category %></p>
         <% end %>
+
         <% if logged_in? && (current_user == workout.user || current_user.admin?) %>
           <div class="workout-actions">
             <%= link_to "Edit this workout", edit_workout_path(workout), class: "btn btn-xs btn-primary" %>
