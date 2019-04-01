@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users  do
     resources :workouts
   end
+  resources :users
   resources :workouts
   resources :categories, except: [:destroy]
 
