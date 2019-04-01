@@ -5,4 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Category.create(name:'Legs')
+Workout.create(level:'Beginner')
+Workout.create(level:'Intermediate')
+Workout.create(level:'Advanced')
+Workout.create(level:'Expert')
