@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   def create
     if auth_hash
         @user = User.find_or_create_by_omniauth(auth_hash)
-        
+
         session[:user_id] = @user.id
         # binding.pry
         redirect_to user_path(@user)

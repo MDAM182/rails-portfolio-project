@@ -19,6 +19,7 @@
   <hr>
   <%= simple_format(@workout.description) %>
 
+      <%=  @workout.level %>
 
       <% if @workout.category %>
     <p>Categories: <%= render @workout.category %></p>

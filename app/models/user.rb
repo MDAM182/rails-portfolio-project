@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  
+
   has_many :workouts, inverse_of: :user, autosave: true, dependent: :destroy
   has_many :categories, through: :workouts
 
@@ -13,7 +13,9 @@ class User < ApplicationRecord
 
   def self.find_or_create_by_omniauth(auth_hash)
       self.where(email: auth_hash['info']['email']).first_or_create do |user|
-      user.password = auth_hash['info']['password']
+        # binding.pry
+      # user.password = auth_hash['info']['password']
+       user.password = SecureRandom.hex
       user.username = auth_hash['info']['name']
     end
   end

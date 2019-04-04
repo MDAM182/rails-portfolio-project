@@ -22,18 +22,18 @@
         </div>
 
         <!-- Level Selection -->
-        
-      <!--  <div class="control-label col-sm-2">
-          <<%= f.label :level %>
+
+        <div class="control-label col-sm-2">
+          <%= f.label :level %>
         </div>
         <div class="form-group">
           <div class="row">
             <div class="col-sm-8 col-sm-offset-2">
-              <<%= f.collection_select :level, Workout.order(:level),:id,:level, include_blank: "Select" %>
+              <%= f.select :level,['Beginner','Intermediate','Advanced','Expert'], include_blank: "Select" %>
 
             </div>
           </div>
-        </div> -->
+        </div>
 
       <div class="control-label col-sm-2">
         <%= f.label :categories %>
