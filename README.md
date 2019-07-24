@@ -10,7 +10,9 @@ git clone git@github.com:MDAM182/rails-portfolio-project.git
 
 cd into rails-portfolio-project
 
-Open with the specified text editor
+open with the specified text editor
+
+run rails s in terminal
 
 
 # Contributing
